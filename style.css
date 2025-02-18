@@ -1,0 +1,85 @@
+:root {
+    --background-color: #f1f1f1;
+    --header-background: #eee;
+    --active-background: #ccc;
+    --border-color: #ddd;
+    --card-padding: 10px;
+    --gap-size: 16px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --header-padding: 18px;
+    --accordion-margin: 20px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+.accordion {
+    width: 95%;
+    margin: var(--accordion-margin) auto;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    padding: 5px;
+}
+
+.accordion-header {
+    background-color: var(--header-background);
+    cursor: pointer;
+    padding: var(--header-padding);
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.active {
+    background-color: var(--active-background);
+}
+
+.accordion-icon {
+    float: right;
+}
+
+.accordion-content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    flex-wrap: wrap;
+    gap: var(--gap-size);
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.active {
+    display: flex; 
+    max-height: 100vh;
+}
+
+.card {
+    flex: 1 1 calc(33.33% - 10px);
+    padding: var(--card-padding);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(50% - 10px);
+        /* Two cards per row on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        flex: 1 1 100%;
+        /* One card per row on small screens */
+    }
+
+}
